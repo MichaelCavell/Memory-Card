@@ -47,9 +47,9 @@ export function MemoryGame() {
 
     if (pokemon.isClicked) {
       setIsRunning(false);
-      gameOver(false); // false indicates loss
+      gameOver(false);
     } else {
-      setScore(score + 1); // Increment score for a successful click
+      setScore(score + 1);
 
       const updatedPokemonList = pokemonList.map(p =>
         p.name === name ? { ...p, isClicked: true } : p
@@ -58,7 +58,7 @@ export function MemoryGame() {
 
       if (updatedPokemonList.every(p => p.isClicked)) {
         setIsRunning(false);
-        gameOver(true); // true indicates win
+        gameOver(true);
       }
     }
   };
@@ -66,7 +66,7 @@ export function MemoryGame() {
   const gameOver = (hasWon) => {
     if (score > highestScore) {
       setHighestScore(score);
-      localStorage.setItem('highestScore', JSON.stringify(score)); // Persist the score
+      localStorage.setItem('highestScore', JSON.stringify(score)); 
     }
 
     let message = hasWon 
